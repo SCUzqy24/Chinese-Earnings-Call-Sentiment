@@ -1,0 +1,42 @@
+# Core numerical and data processing
+
+numpy==2.5.1
+pandas==2.3.3
+tqdm==4.69.0
+
+# Machine learning
+
+scikit-learn==1.9.0
+
+# Deep learning
+
+torch==2.10.0
+accelerate==1.14.0
+
+# Hugging Face Transformers
+
+transformers==5.8.1
+datasets==4.8.4
+tokenizers==0.22.2
+safetensors==0.8.0
+huggingface_hub==1.25.1
+
+# ModelScope
+
+modelscope
+
+# Chinese text processing
+
+jieba==0.42.1
+
+# Visualization
+
+matplotlib==3.11.1
+
+# DeepSeek / OpenAI-compatible API
+
+openai==2.49.0
+
+# Apache Arrow backend used by Hugging Face Datasets
+
+pyarrow==25.0.0
