@@ -161,9 +161,7 @@ Chinese-Earnings-Call-Sentiment/
 ├── Dictionary/
 │   ├── Dictionary\_evaluate.py
 │   ├── lm\_neg.txt
-
 │   ├── lm\_pos.txt
-
 │   ├── du\_neg.txt
 │   └── du\_pos.txt
 │
