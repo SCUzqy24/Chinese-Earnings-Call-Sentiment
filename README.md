@@ -71,6 +71,10 @@ Dictionary/
 ### 3.2 StructBERT
 
 研究采用中文 StructBERT 作为预训练语言模型方法。
+针对中国上市公司业绩说明会管理层回复进行二分类情感分析的中文 StructBERT 微调模型。
+Hugging Face： `SCUzqy24/StructBert_finetuned_sentiment`
+基础模型：
+`https://modelscope.cn/models/iic/nlp_structbert_sentiment-classification_chinese-base`
 
 仓库提供：
 
@@ -90,7 +94,11 @@ StructBert/
 
 研究同时采用 FinBERT-tone-Chinese 进行金融文本情感分类。
 
-原始 FinBERT 模型采用三分类情感体系。为了与本研究的人工标注任务保持一致，模型被调整为二分类任务：
+原始 FinBERT 模型采用三分类情感体系。为了与本研究的人工标注任务保持一致，模型被调整为二分类任务。
+针对中国上市公司业绩说明会管理层回复进行二分类情感分析的中文 FinBERT 微调模型。
+Hugging Face： `SCUzqy24/FinBert_finetuned_sentiment`
+基础模型：
+`yiyanghkust/finbert-tone-chinese`
 
 ```text
 0 = 负面
