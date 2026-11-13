@@ -44,7 +44,7 @@ warnings.filterwarnings("ignore")
 # Basic Parameters
 # ==========================================================
 
-MODEL_ID = "structbert_finetuned1"
+MODEL_ID = "iic/nlp_structbert_sentiment-classification_chinese-base"
 
 DATA_PATH = "data.csv"
 
@@ -52,13 +52,13 @@ TEXT_COLUMN = "sentence"
 
 LABEL_COLUMN = "label"
 
-MAX_EPOCHS = 3
+MAX_EPOCHS = 8
 
 N_SPLITS = 5
 
 RANDOM_SEED = 42
 
-OUTPUT_DIR = "StructBERT_finetuned2_Results"
+OUTPUT_DIR = "StructBERT_finetuned_Results"
 
 # ==========================================================
 # Create Output Folder
@@ -78,7 +78,7 @@ os.makedirs(
 
 api = HubApi()
 
-api.login("ms-1cf30d6b-f58a-4c71-a2a2-280c3faad891")
+api.login("your_modelscope_loginApi")
 
 # ==========================================================
 # Load Dataset
@@ -232,7 +232,6 @@ for fold, (train_idx, val_idx) in enumerate(
 
     # ======================================================
     # Modify Config
-    # （保持与你原来的7010wa完全一致）
     # ======================================================
 
     def cfg_modify_fn(cfg):
@@ -287,9 +286,9 @@ for fold, (train_idx, val_idx) in enumerate(
 
         cfg.train.lr_scheduler = {
 
-            "type": "StepLR",
+            "type": "CosineAnnealingLR",
 
-            "step_size": 2,
+            "T_max: 4,
 
             "options": {
 
@@ -297,7 +296,7 @@ for fold, (train_idx, val_idx) in enumerate(
 
                     "type": "LinearWarmup",
 
-                    "warmup_iters": 1
+                    "warmup_iters": 4
 
                 }
 
@@ -761,7 +760,7 @@ result.to_excel(
 
         OUTPUT_DIR,
 
-        "StructBERT_finetuned2_Results.xlsx"
+        "StructBERT_finetuned_Results.xlsx"
 
     ),
 
