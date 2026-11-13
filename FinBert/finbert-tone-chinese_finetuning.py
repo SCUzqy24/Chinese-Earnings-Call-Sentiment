@@ -27,7 +27,7 @@ TRAIN_FILE = "train.csv"
 
 DEV_FILE = "dev.csv"
 
-OUTPUT_DIR = "./output_fb_fintuned1"
+OUTPUT_DIR = "./output_fb_fintuned"
 
 TEXT_COLUMN = "sentence"
 
