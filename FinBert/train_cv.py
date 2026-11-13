@@ -81,7 +81,7 @@ warnings.filterwarnings("ignore")
 from modelscope import snapshot_download
 
 MODEL_PATH = snapshot_download(
-    "finbert_finetuned1"
+    "finbert-tone-chinese"
 )
 
 print(MODEL_PATH)
@@ -96,7 +96,7 @@ OUTPUT_DIR = "./output"
 
 NUM_LABELS = 2
 
-NUM_EPOCHS = 3
+NUM_EPOCHS = 8
 
 BATCH_SIZE = 16
 
@@ -475,6 +475,10 @@ for fold, (train_idx, valid_idx) in enumerate(
         remove_unused_columns=False,
 
         report_to="none",
+
+        lr_scheduler_type="cosine",
+
+        warmup_ratio=0.1
     )
 
     # ========================================================
@@ -515,24 +519,11 @@ for fold, (train_idx, valid_idx) in enumerate(
 
     )
 
-    from torch.optim.lr_scheduler import StepLR
-
-    trainer.create_optimizer()
-
-    trainer.lr_scheduler = StepLR(
-
-        trainer.optimizer,
-
-        step_size=2,
-
-        gamma=0.1
-
-    )
 
     print("Trainer Initialized.")
-# ============================================================
-# 开始训练
-# ============================================================
+    # ============================================================
+    # 开始训练
+    # ============================================================
 
     print("\nStart Training...\n")
 
