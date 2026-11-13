@@ -1,5 +1,4 @@
 import os.path as osp
-
 import torch
 from modelscope.trainers import build_trainer
 from modelscope.msdatasets import MsDataset
@@ -59,9 +58,9 @@ if __name__ == '__main__':
     train_dataset = train_dataset.filter(lambda x: x["label"] is not None and x["sentence"] is not None)
     eval_dataset = eval_dataset.filter(lambda x: x["label"] is not None and x["sentence"] is not None)
 
-    # 将标签转化成012的对应关系
+    # 将标签转化成01的对应关系
     def map_labels(examples):
-        map_dict = {0: "1", 1: "1"}
+        map_dict = {0: "0", 1: "1"}
         examples['label'] = map_dict[int(examples['label'])]
         return examples
 
